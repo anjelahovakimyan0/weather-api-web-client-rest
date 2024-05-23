@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookings Page</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            font-size: smaller;
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .pagination {
+            display: inline-block;
+        }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-right: 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        a.button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+
+</head>
+<body>
+<h1>Booking Page</h1> <br>
+
+<a class="button" href="/bookings/create">Book a day</a> <br> <br>
+
+<table>
+    <thead>
+    <tr>
+        <th><a th:href="@{/bookings(page=1, size=${size}, orderBy='id', order=${order == 'ASC' ? 'DESC' : 'ASC'})}">ID</a></th>
+        <th><a th:href="@{/bookings(page=1, size=${size}, orderBy='description', order=${order == 'ASC' ? 'DESC' : 'ASC'})}">Description</a></th>
+        <th><a th:href="@{/bookings(page=1, size=${size}, orderBy='address', order=${order == 'ASC' ? 'DESC' : 'ASC'})}">Address</a></th>
+        <th><a th:href="@{/bookings(page=1, size=${size}, orderBy='participants', order=${order == 'ASC' ? 'DESC' : 'ASC'})}">Participants</a></th>
+        <th><a th:href="@{/bookings(page=1, size=${size}, orderBy='bookingDate', order=${order == 'ASC' ? 'DESC' : 'ASC'})}">Booking Date</a></th>
+        <th><a th:href="@{/bookings(page=1, size=${size}, orderBy='eventStartTime', order=${order == 'ASC' ? 'DESC' : 'ASC'})}">Event Start Time</a></th>
+        <th><a th:href="@{/bookings(page=1, size=${size}, orderBy='eventEndTime', order=${order == 'ASC' ? 'DESC' : 'ASC'})}">Event End Time</a></th>
+        <th><a th:href="@{/bookings(page=1, size=${size}, orderBy='status', order=${order == 'ASC' ? 'DESC' : 'ASC'})}">Status</a></th>
+        <th><a th:href="@{/bookings(page=1, size=${size}, orderBy='eventCategory', order=${order == 'ASC' ? 'DESC' : 'ASC'})}">Event Category</a></th>
+        <th>Specialties</th>
+        <th><a th:href="@{/bookings(page=1, size=${size}, orderBy='user', order=${order == 'ASC' ? 'DESC' : 'ASC'})}">Booked by</a></th>
+        <th>Discounts</th>
+        <th>Update</th>
+        <th>Delete</th>
+        <th th:if="${currentUser.role.name() == 'ADMIN'}">Create Agreement</th>
+        <th th:if="${currentUser.role.name() == 'ADMIN'}">Update agreements</th>
+        <th th:if="${currentUser.role.name() == 'ADMIN'}">Send agreements</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="booking : ${bookings}">
+        <td th:text="${booking.id}"></td>
+        <td th:text="${booking.description}"></td>
+        <td th:text="${booking.address}"></td>
+        <td th:text="${booking.participants}"></td>
+        <td th:text="${#dates.format(booking.bookingDate, 'yyyy-MM-dd')}"></td>
+        <td th:text="${#dates.format(booking.eventStartTime, 'yyyy-MM-dd HH:mm')}"></td>
+        <td th:text="${#dates.format(booking.eventEndTime, 'yyyy-MM-dd HH:mm')}"></td>
+        <td th:text="${booking.status}"></td>
+        <td th:text="${booking.eventCategory.name}"></td>
+
+        <td th:if="${booking.specialties != null}">
+            <ul th:each="specialty : ${booking.specialties}">
+                <li th:text="${specialty.name}"/>
+            </ul>
+        </td>
+        <td th:text="${booking.user.name + ' ' + booking.user.surname}"/>
+        <td th:if="${booking.discounts == null}" th:text="No Discounts"/>
+        <td th:if="${booking.discounts != null}">
+            <ul th:each="discount : ${booking.discounts}">
+                <li th:text="${discount.name}"/>
+            </ul>
+        </td>
+        <td style="text-align:center">
+            <a class="button" th:href="@{/bookings/update/{id}(id=${booking.id})}">Update</a>
+        </td>
+        <td style="text-align:center">
+            <a class="button" th:href="@{/bookings/delete/{id}(id=${booking.id})}">Delete</a>
+        </td>
+        <td>
+            <span th:if="${currentUser.role.name == 'ADMIN' && booking.status.name() == 'PENDING'}" >
+                <a class="button" th:href="@{/agreements/create(bookingId=${booking.id})}" th:text="'Create Agreement'"/>
+            </span>
+            <span th:if="${currentUser.role.name == 'ADMIN' && booking.status.name() == 'CANCELED'}" th:text="'Booking was calceled'" />
+        </td>
+
+        <td th:if="${currentUser.role.name == 'ADMIN'}">
+            <div th:if="${agreements != null && !agreements.isEmpty()}" th:each="agreement : ${agreements}">
+                <div th:if="${agreement.booking.id == booking.id}">
+                    <a class="button" th:href="@{/agreements/update/{id}(id=${agreement.id})}">Update Agreement</a>
+                </div>
+            </div>
+        </td>
+        <td th:if="${currentUser.role.name == 'ADMIN'}">
+            <div th:if="${agreements != null && !agreements.isEmpty()}" th:each="agreement : ${agreements}">
+                <div th:if="${agreement.booking.id == booking.id}">
+                    <a class="button" th:href="@{/agreements/send/{id}(id=${agreement.id})}">Send Agreement</a>
+                </div>
+            </div>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+<!-- Pagination -->
+<div class="pagination" th:if="${bookings.totalPages > 1}" th:each="pageNumber : ${pageNumbers}">
+    <a class="active" th:href="@{bookings(page=${pageNumber}, size=${bookings.size})}" th:text="${pageNumber}"
+       th:class="${pageNumber == bookings.number + 1} ?  active"> </a>
+</div>
+<div>
+    <a class="button" href="/logout">Log out</a> <br> <br>
+</div>
+</body>
+</html>

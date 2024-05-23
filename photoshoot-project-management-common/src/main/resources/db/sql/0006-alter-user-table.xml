@@ -1,0 +1,28 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="0006-alter-user-table" author="ngalstyan">
+
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="user" columnName="is_deleted"/>
+            <columnExists tableName="user" columnName="role"/>
+        </preConditions>
+
+        <addColumn tableName="user">
+            <column name="is_deleted" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+
+        <addDefaultValue tableName="user" columnName="is_deleted" defaultValueBoolean="false"/>
+
+        <addColumn tableName="user">
+            <column name="role" type="enum ('ADMIN', 'USER')">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+
+    </changeSet>
+</databaseChangeLog>

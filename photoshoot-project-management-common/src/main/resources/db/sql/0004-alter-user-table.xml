@@ -1,0 +1,32 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="0004-alter-user-table" author="ngalstyan">
+
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="user" columnName="pic_name"/>
+            <columnExists tableName="user" columnName="token"/>
+        </preConditions>
+
+        <renameColumn tableName="user"
+                      oldColumnName="pic_name"
+                      newColumnName="avatar_url"
+                      columnDataType="varchar(255)"/>
+
+        <renameColumn tableName="user"
+                      oldColumnName="token"
+                      newColumnName="email_token"
+                      columnDataType="varchar(255)"/>
+
+        <addColumn tableName="user">
+            <column name="hasLeftReview" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+
+        <addDefaultValue tableName="user" columnName="hasLeftReview" defaultValueBoolean="false"/>
+
+    </changeSet>
+</databaseChangeLog>

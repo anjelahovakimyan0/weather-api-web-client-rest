@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/agreements/update" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" th:value="${agreement.id}">
+    Name: <input type="text" name="name" th:value="${agreement.name}"><br>
+    Price: <input type="number" name="price" step="0.01" th:value="${agreement.price}"><br>
+    <input type="submit" value="Update"><br>
+</form>
+</body>
+</html>

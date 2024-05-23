@@ -1,0 +1,24 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="modify-booking-table" author="ngalstyan">
+
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="booking" columnName="category"/>
+        </preConditions>
+
+        <dropColumn columnName="category" tableName="booking"/>
+
+        <addColumn tableName="booking">
+            <column name="event_category_id" type="int(11)"/>
+        </addColumn>
+
+        <addForeignKeyConstraint baseTableName="booking"
+                                 baseColumnNames="event_category_id"
+                                 constraintName="fk_booking_event_category"
+                                 referencedColumnNames="id"
+                                 referencedTableName="event_category"/>
+    </changeSet>
+</databaseChangeLog>

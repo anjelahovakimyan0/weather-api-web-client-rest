@@ -1,0 +1,27 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="0015-alter-user-table" author="ahovakimyan">
+
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="user" columnName="hasLeftReview"/>
+        </preConditions>
+
+        <renameColumn tableName="user"
+                      oldColumnName="hasLeftReview"
+                      newColumnName="has_left_review"
+                      columnDataType="boolean"/>
+
+        <addNotNullConstraint tableName="user"
+                              columnName="has_left_review"
+                              columnDataType="boolean"/>
+
+        <addDefaultValue tableName="user"
+                         columnName="has_left_review"
+                         defaultValueBoolean="false"/>
+
+    </changeSet>
+
+</databaseChangeLog>

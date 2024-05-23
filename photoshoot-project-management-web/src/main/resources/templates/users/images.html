@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images Page</title>
+    <style>
+        /* Embedded CSS */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .pagination {
+            margin-top: 20px;
+        }
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+        }
+        .pagination a.active {
+            background-color: dodgerblue;
+            color: white;
+        }
+        .pagination a:hover:not(.active) {background-color: #ddd;
+        }
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-right: 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        a.button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h2>Images Page</h2> <br>
+<a class="button" th:href="@{/users/admin/home}">Home</a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Event Category</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="image : ${images.content}">
+        <td th:text="${image.id}"></td>
+        <td>
+            <img width="100" height="auto" th:src="@{/getPicture(picName=${image.picUrl})}" alt="pic">
+        </td>
+        <td th:text="${image.eventCategory.name}"></td>
+        <td>
+            <a class="button" th:href="@{'/images/update/' + ${image.id}}">Update</a>
+        </td>
+        <td>
+            <a class="button" th:href="@{'/images/delete/' + ${image.id}}">Delete</a>
+        </td>
+    </tr>
+</table>
+<p>
+    <a class="button" th:href="@{'/images/create'}">Add new Image</a>
+</p>
+<!--<div class="pagination">-->
+<!--    <a th:if="${images.hasPrevious()}" th:href="@{'/images?page=' + ${images.number} + '&size=' + ${images.size} + '&orderBy=' + ${orderBy} + '&order=' + ${order}}">&laquo; Previous</a>-->
+<!--    <a th:each="pageNumber : ${#numbers.sequence(1, images.totalPages)}" th:href="@{'/images?page=' + ${pageNumber} + '&size=' + ${images.size} + '&orderBy=' + ${orderBy} + '&order=' + ${order}}" th:class="${pageNumber == images.number + 1} ? 'active'">[[${pageNumber}]]</a>-->
+<!--    <a th:if="${images.hasNext()}" th:href="@{'/images?page=' + (${images.number + 2}) + '&size=' + ${images.size} + '&orderBy=' + ${orderBy} + '&order=' + ${order}}">Next &raquo;</a>-->
+<!--</div>-->
+    <div class="pagination" th:if="${images.totalPages > 1}" th:each="pageNumber : ${pageNumbers}">
+        <a class="active" th:href="@{images(page=${pageNumber}, size=${size}, orderBy=${orderBy}, order=${order})}" th:text="${pageNumber}"
+           th:class="${pageNumber == images.number +1} ?  active"> </a>
+    </div>
+
+</body>
+</html>

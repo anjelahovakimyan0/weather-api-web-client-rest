@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/reviews/create" method="post">
+    Content: <input type="text" name="content"><br>
+    <p th:if="${#fields.hasErrors('content')}">Invalid Content</p>
+
+    <input type="submit" value="Create">
+</form>
+
+<!--<form:form-->
+<!--        action="/reviews/create"-->
+<!--        modelAttribute="review">-->
+<!--    <label for="content">Content: </label>-->
+<!--    <form:input path="content" id="contentInput" />-->
+<!--    <form:errors path="content" cssClass="error" />-->
+<!--    <input type="submit" value="Submit" />-->
+<!--</form:form>-->
+</body>
+</html>

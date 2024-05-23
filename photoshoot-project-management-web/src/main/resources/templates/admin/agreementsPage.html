@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agreements Page</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .pagination {
+            display: inline-block;
+        }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-right: 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        a.button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+
+</head>
+<body>
+<h1>Agreements Page</h1> <br>
+
+<table>
+    <thead>
+    <tr>
+        <th><a th:href="@{agreements(page=1, size=${size}, orderBy='id', order=${order == 'ASC' ? 'DESC' : 'ASC'})}">ID</a></th>
+        <th><a th:href="@{agreements(page=1, size=${size}, orderBy='name', order=${order == 'ASC' ? 'DESC' : 'ASC'})}">Name</a></th>
+        <th><a th:href="@{agreements(page=1, size=${size}, orderBy='price', order=${order == 'ASC' ? 'DESC' : 'ASC'})}">Price</a></th>
+        <th><a th:href="@{agreements(page=1, size=${size}, orderBy='booking', order=${order == 'ASC' ? 'DESC' : 'ASC'})}">Booking Description</a></th>
+        <th><a th:href="@{agreements(page=1, size=${size}, orderBy='specialties', order=${order == 'ASC' ? 'DESC' : 'ASC'})}">Specialties</a></th>
+        <th><a th:href="@{agreements(page=1, size=${size}, orderBy='user', order=${order == 'ASC' ? 'DESC' : 'ASC'})}">Signed by</a></th>
+        <th style="text-align:center">Update</th>
+        <th style="text-align:center">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="agreement : ${agreements}">
+        <td th:text="${agreement.id}"></td>
+        <td th:text="${agreement.name}"></td>
+        <td th:text="${agreement.price}"></td>
+        <td th:text="${agreement.booking.description}"></td>
+        <td>
+            <ul th:each="specialty : ${agreement.booking.specialties}">
+                <li th:text="${specialty.name} + ' '"/>
+            </ul>
+        </td>
+        <td th:text="${agreement.user.name + ' ' + agreement.user.surname}"></td>
+        <td style="text-align:center">
+            <a class="button" th:href="@{/agreements/update/{id}(id=${agreement.id})}">Update</a>
+        </td>
+        <td style="text-align:center">
+            <a class="button" th:href="@{/agreements/delete/{id}(id=${agreement.id})}">Delete</a>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+<!-- Pagination -->
+<div class="pagination" th:if="${agreements.totalPages > 1}" th:each="pageNumber : ${pageNumbers}">
+    <a class="active" th:href="@{agreements(page=${pageNumber}, size=${size}, orderBy=${orderBy}, order=${order})}" th:text="${pageNumber}"
+       th:class="${pageNumber == agreements.number +1} ?  active"> </a>
+</div>
+<div>
+    <a class="button" href="/logout">Log out</a> <br> <br>
+</div>
+</body>
+</html>

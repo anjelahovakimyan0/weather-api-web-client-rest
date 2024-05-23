@@ -1,0 +1,38 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="0012-alter-booking-table" author="ngalstyan">
+
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="booking" columnName="event_date"/>
+        </preConditions>
+
+        <modifyDataType columnName="booking_date"
+                        newDataType="date"
+                        tableName="booking"/>
+
+        <modifyDataType columnName="event_date"
+                        newDataType="datetime"
+                        tableName="booking"/>
+
+        <renameColumn tableName="booking"
+                      oldColumnName="event_date"
+                      newColumnName="event_start_time"
+                      columnDataType="datetime"/>
+
+        <addNotNullConstraint columnDataType="datetime" tableName="booking" columnName="event_start_time"/>
+        <addNotNullConstraint columnDataType="date" tableName="booking" columnName="booking_date"/>
+        <addNotNullConstraint columnDataType="ENUM('PENDING', 'APPROVED', 'CANCELED')" tableName="booking" columnName="status"/>
+        <addNotNullConstraint columnDataType="int(11)" tableName="booking" columnName="user_id"/>
+        <addNotNullConstraint columnDataType="int(11)" tableName="booking" columnName="event_category_id"/>
+
+        <addColumn tableName="booking">
+            <column name="event_end_time" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

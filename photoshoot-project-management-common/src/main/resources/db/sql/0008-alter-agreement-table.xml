@@ -1,0 +1,26 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="0008-alter-agreement-table" author="ngalstyan">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="agreement" columnName="signed_by"/>
+            </not>
+        </preConditions>
+
+        <addColumn tableName="agreement">
+            <column name="signed_by" type="int(11)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+
+        <addForeignKeyConstraint baseTableName="agreement"
+                                 baseColumnNames="signed_by"
+                                 constraintName="fk_agreement_user"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/bookings/update" method="post">
+    <input type="hidden" name="id" th:value="${booking.id}">
+    Description: <input type="text" name="description" th:value="${booking.description}"><br>
+    Address: <input type="text" name="address" th:value="${booking.address}"><br>
+    Participants: <input type="number" name="participants" th:value="${booking.participants}"><br>
+    <select name="eventCategory.id">
+        <option th:each="eventCategory : ${eventCategories}"
+                th:selected="${booking.eventCategory == eventCategory}"
+                th:value="${eventCategory.id}"
+                th:text="${eventCategory.name}"></option>
+    </select><br>
+    <input type="hidden" name="bookingDate" th:value="${booking.bookingDate}">
+    <input type="hidden" name="status" th:value="${booking.status}">
+    <input type="datetime-local" name="eventStartTime" th:value="${booking.eventStartTime}">
+    <input type="datetime-local" name="eventEndTime" th:value="${booking.eventEndTime}">
+    <input type="submit" value="Update">
+</form>
+</body>
+</html>

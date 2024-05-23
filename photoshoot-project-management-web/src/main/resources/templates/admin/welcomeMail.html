@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Arm Photo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            background-color: #fff;
+            color: #4994eb;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            max-width: 600px;
+            margin: 50px auto;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #4994eb;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #444;
+        }
+        a {
+            color: #4994eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .banner {
+            background-image: url("/Users/narekgalstyan/Documents/IdeaProjects/photoshoot-project-management/uploadDirectory/wedding.jpg"); /* Replace with your background image URL */
+            background-size: cover;
+            background-position: center;
+            height: 150px;
+            border-radius: 5px 5px 0 0;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="banner"></div>
+    <h2>Welcome to the ArmPhoto Community, <span th:text="${user.name + ' ' + user.surname}"></span>!</h2>
+    <p>Thank you for taking the first step towards joining us! If you intended to register, please activate your account by clicking the link below:</p>
+    <p>To activate your profile and access all the features we have to offer, please click the link below:</p>
+    <p><a th:href="@{${serverUrl}+'/users/verify'(token=${user.emailToken})}" style="background-color: #4994eb; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Activate Your Account</a></p>
+
+    <p>If you did not intend to register with ArmPhoto, please disregard this email. </p>
+    <p>In case of any technical difficulties or questions regarding this email, please feel free to contact our support team at <a href="mailto:support@armphoto.com">support@armphoto.com</a>. We're here to help!</p>
+    <p>Thank you, </p>
+    <p>The ArmPhoto Team</p>
+</div>
+</body>
+</html>

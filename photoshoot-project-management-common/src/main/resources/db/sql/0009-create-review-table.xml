@@ -1,0 +1,53 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+    <changeSet id="0009-create-review-table" author="ngalstyan">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="review"/>
+                <tableExists tableName="image"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="review">
+            <column name="id" type="INT(11)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="content" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="int(11)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="review"
+                                 baseColumnNames="user_id"
+                                 constraintName="fk_review_user"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user"/>
+
+        <createTable tableName="image">
+            <column name="id" type="INT(11)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="pic_url" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="event_category_id" type="int(11)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="image"
+                                 baseColumnNames="event_category_id"
+                                 constraintName="fk_image_event"
+                                 referencedColumnNames="id"
+                                 referencedTableName="event_category"/>
+
+    </changeSet>
+</databaseChangeLog>

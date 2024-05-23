@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .pagination {
+            display: inline-block;
+        }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+    </style>
+
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <th>
+            <a th:href="@{/agreements(page=${currentPage}, orderBy=id, order=${order})}">id</a>
+        </th>
+        <th>
+            <a th:href="@{/agreements(page=${currentPage}, orderBy=name, order=${order})}">name</a>
+        </th>
+        <th>price</th>
+        <th>booking</th>
+        <th>user name</th>
+        <th>Update Review</th>
+        <th>Delete Review</th>
+    </tr>
+    <tr th:each="agreement : ${agreements}">
+        <td th:text="${agreement.id}"></td>
+        <td th:text="${agreement.name}"></td>
+        <td th:text="${agreement.price}"></td>
+        <td th:text="${agreement.booking.description}"></td>
+        <td th:text="${agreement.user.name}"></td>
+        <td>
+            <a th:href="@{'/agreements/update/' + ${agreement.id}}">Update</a>
+        </td>
+        <td>
+            <a th:href="@{'/agreements/delete/' + ${agreement.id}}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+<div th:if="${agreements.totalPages > 0}" class="pagination"
+     th:each="pageNumber : ${pageNumbers}">
+    <div>
+        <a th:href="@{/agreements(page=${pageNumber}, size=${agreements.size}, orderBy=${orderBy}, order=${order})}"
+           th:text="${pageNumber}"
+           th:class="${pageNumber==agreements.number + 1} ? active"></a>
+    </div>
+    <br>
+</div>
+
+<div>
+    <a th:href="@{/agreements(page=${currentPage}, size=${agreements.size}, orderBy=${orderBy}, order=ASC)}">ASC</a>
+    <a th:href="@{/agreements(page=${currentPage}, size=${agreements.size}, orderBy=${orderBy}, order=DESC)}">DESC</a>
+</div>
+
+</body>
+</html>

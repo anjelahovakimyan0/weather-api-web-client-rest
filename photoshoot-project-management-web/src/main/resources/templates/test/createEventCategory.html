@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/eventCategories/create" method="post">
+    Name: <input type="text" name="name"><br>
+    Description: <input type="text" name="description"><br>
+    Starting price: <input type="number" step="0.01" name="startingPrice"><br>
+    Participants: <input type="number" name="participants"><br>
+    <input type="submit" value="Create">
+</form>
+</body>
+</html>

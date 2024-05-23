@@ -1,0 +1,19 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="0005-alter-booking-table" author="ngalstyan">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="booking" columnName="booking_date"/>
+            </not>
+        </preConditions>
+
+        <addColumn tableName="booking">
+            <column name="booking_date" type="datetime"/>
+        </addColumn>
+
+    </changeSet>
+</databaseChangeLog>

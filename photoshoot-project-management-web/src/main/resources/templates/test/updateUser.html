@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/users/update" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" th:value="${user.id}">
+    Name: <input type="text" name="name" th:value="${user.name}"><br>
+    Surname: <input type="text" name="surname" th:value="${user.surname}"><br>
+    Phone: <input type="text" name="phone" th:value="${user.phone}"><br>
+    Email: <input type="email" name="email" th:value="${user.email}"><br>
+    Password: <input type="password" name="password" th:value="${user.password}"><br>
+    <input type="file" name="picture"><br>
+    <input type="submit" value="Update"><br>
+
+    <img th:if="${user.avatarUrl}" th:src="@{/getPicture(picName=${user.avatarUrl})}" width="100">
+    <a th:if="${user.avatarUrl}"  th:href="@{'/users/deletePicture/' + ${user.id}}">Delete Picture</a>
+</form>
+</body>
+</html>

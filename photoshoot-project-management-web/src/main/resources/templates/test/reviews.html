@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .pagination {
+            display: inline-block;
+        }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+    </style>
+
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <th>
+            <a th:href="@{/reviews(page=${currentPage}, orderBy=id, order=${order})}">id</a>
+        </th>
+        <th>
+            <a th:href="@{/reviews(page=${currentPage}, orderBy=content, order=${order})}">content</a>
+        </th>
+        <th>user name</th>
+        <th>Update Review</th>
+        <th>Delete Review</th>
+    </tr>
+    <tr th:each="review : ${reviews}">
+        <td th:text="${review.id}"></td>
+        <td th:text="${review.content}"></td>
+        <td th:text="${review.user.name}"></td>
+        <td>
+            <a th:href="@{'/reviews/update/' + ${review.id}}">Update</a>
+        </td>
+        <td>
+            <a th:href="@{'/reviews/delete/' + ${review.id}}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+<div th:if="${reviews.totalPages > 0}" class="pagination"
+     th:each="pageNumber : ${pageNumbers}">
+    <div>
+        <a th:href="@{/reviews(page=${pageNumber}, size=${reviews.size}, orderBy=${orderBy}, order=${order})}"
+           th:text="${pageNumber}"
+           th:class="${pageNumber==reviews.number + 1} ? active"></a>
+    </div>
+    <br>
+</div>
+
+<div>
+    <a th:href="@{/reviews(page=${currentPage}, size=${reviews.size}, orderBy=${orderBy}, order=ASC)}">ASC</a>
+    <a th:href="@{/reviews(page=${currentPage}, size=${reviews.size}, orderBy=${orderBy}, order=DESC)}">DESC</a>
+</div>
+
+</body>
+</html>

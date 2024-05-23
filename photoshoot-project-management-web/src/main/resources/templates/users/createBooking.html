@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Booking</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        input[type="datetime-local"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Create Booking</h1>
+    <form action="/bookings/create" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" placeholder="Describe the event with max 500 characters, not required">
+        </div>
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address"
+                   placeholder="Where the event is going to be happen (Address or city, place, banquet hall, etc.)"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="participants">Participants:</label>
+            <input type="number" id="participants" name="participants" min="1" max="500" placeholder="min 1 required"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="eventStartTime">Event Start Date and Time:</label>
+            <input type="datetime-local" id="eventStartTime" name="eventStartTime" required>
+        </div>
+        <div class="form-group">
+            <label for="eventEndTime">Event End Date and Time:</label>
+            <input type="datetime-local" id="eventEndTime" name="eventEndTime" required>
+        </div>
+        <div class="form-group">
+            <label for="eventCategory">Event Category:</label>
+            <select id="eventCategory" name="eventCategory" required>
+                <option value="" disabled selected>Select Event Category</option>
+                <!-- Populate dropdown options using Thymeleaf -->
+                <option th:each="category : ${eventCategories}"
+                        th:value="${category.id}"
+                        th:text="${category.name}">
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label><strong>Specialties:</strong></label>
+            <label  style="color: grey ">Please select one of the specialties. If non of them is selected, the 'PHOTO' will be applied automatically</label>
+            <div th:each="specialty : ${specialties}">
+                <label>
+                    <input type="checkbox" th:name="specialties" th:value="${specialty.id}">
+                </label>
+                <label th:text="${specialty.name}"></label>
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+            <label><strong>Discounts:</strong><span style="color: red;">(not required)</span></label>
+            <div th:each="discount, status : ${discounts}">
+                <label>
+                    <input type="checkbox" th:name="discounts[__${status.index}__].id"
+                           th:value="${discount.id}" style="display: inline">
+                    <label th:text="${discount.name}" style="display: inline"></label>
+                </label>
+            </div><br>
+
+            <label style="color: red">Please select all the document types that you checked for getting discounts.
+                Make sure that your documents have filename that contains discount types' names<i>(
+                    introductory, value-added, referral, intentional, veteran, disability, senior, beneficiary)</i>
+                (files' names aren't case sensitive)</label>
+            <p style="color: red">
+                Checked discounts and files should be equal and suitable to each other: by names.
+                Every checked discount will have a document.</p>
+            <div th:if="${documents.size() > 0}">
+                <p>These are your documents for discounts from last booking, you can either save them like this or modify them</p>
+                <div th:each="document : ${documents}" style="display: inline">
+                    <img th:src="@{/getPicture(picName=${document.docUrl})}" width="50" style="display: inline">
+                    <span th:text="${document.discount.name}"></span><br>
+            </div>
+            </div>
+            <br><br>
+
+            <input type="file" multiple name="documents"><br><br>
+
+            <input type="submit" value="Create Booking">
+        </div>
+    </form>
+</div>
+</body>
+</html>

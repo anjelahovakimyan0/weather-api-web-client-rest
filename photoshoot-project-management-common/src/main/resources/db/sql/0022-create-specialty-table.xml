@@ -1,0 +1,53 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+    <changeSet id="0022-create-specialty-table.xml" author="ngalstyan">
+
+        <!-- Preconditions -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="specialty"/>
+                <tableExists tableName="booking_specialty"/>
+            </not>
+            <tableExists tableName="booking"/>
+        </preConditions>
+
+
+        <!-- creating specialty table -->
+        <createTable tableName="specialty">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="ENUM('PHOTO', 'VIDEO', 'DRONE')">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <!-- creating connection table -->
+        <createTable tableName="booking_specialty">
+            <column name="booking_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="specialty_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!-- adding foreign keys -->
+        <addForeignKeyConstraint baseTableName="booking_specialty"
+                                 baseColumnNames="booking_id"
+                                 constraintName="fk_booking"
+                                 referencedTableName="booking"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="booking_specialty"
+                                 baseColumnNames="specialty_id"
+                                 constraintName="fk_specialty"
+                                 referencedTableName="specialty"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

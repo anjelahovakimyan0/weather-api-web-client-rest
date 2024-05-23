@@ -1,0 +1,26 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="0027-alter-document-table" author="ahovakimyan">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="document" columnName="discount_id"/>
+            </not>
+        </preConditions>
+
+        <addColumn tableName="document">
+            <column type="int(11)" name="discount_id">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+
+        <addForeignKeyConstraint baseTableName="document"
+                                 baseColumnNames="discount_id"
+                                 constraintName="fk2_document"
+                                 referencedColumnNames="id"
+                                 referencedTableName="discount"/>
+    </changeSet>
+
+</databaseChangeLog>

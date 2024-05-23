@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Agreement</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .agreement-text {
+            margin-bottom: 20px;
+        }
+
+        .editable-field {
+            display: inline-block;
+            margin-right: 10px;
+            font-weight: bold;
+            background-color: #f2f2f2;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        label, .label-inline {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        input[type="text"], input[type="number"] {
+            display: inline-block;
+            vertical-align: middle;
+            width: auto;
+            padding: 8px;
+            margin-left: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Create Agreement</h1>
+    <form action="/agreements/create" method="post">
+        <input type="hidden" name="bookingId" th:value="${booking.id}"/>
+    <div class="agreement-text">
+        <div>
+            Subject: Confirmation of Photography Agreement for #
+            <label>
+                <input type="number" id="bookingId" name="bookingId" th:text="${booking.id}">
+            </label>
+        </div>
+
+        <div>
+            Dear
+            <label for="name"></label>
+            <input type="text" id="name" name="name" th:value="${booking.user.name + ' ' + booking.user.surname }">
+        </div>
+        <div>I trust this email finds you well. As per our recent discussion, please find attached the Photography Agreement for the upcoming event scheduled on <p style="font-weight:bold" th:text="${booking.eventStartTime.toGMTString()}"></p>
+
+        </div>
+        <div>Agreement Details:</div>
+        <ul>
+            <li>
+                Event Start time
+                <label for="eventStartTime"></label>
+                <input type="datetime-local" id="eventStartTime" name="eventStartTime" th:value="${booking.eventStartTime}">
+            </li>
+            <li>
+                Event End Time
+                <label for="eventEndTime"></label>
+                <input type="datetime-local" id="eventEndTime" name="eventEndTime" th:value="${booking.eventEndTime}">
+            </li>
+            <li>
+                Location(s):
+                <label for="address"></label>
+                <input type="text" id="address" name="address" th:value="${booking.address}">
+            </li>
+            <li>
+                Number of Participants:
+                <label for="participants"></label>
+                <input type="number" id="participants" name="participants" th:value="${booking.participants}" min="0" max="500">
+            </li>
+            <li>
+                <label>Specialties:</label>
+                <div th:each="specialty : ${specialties}">
+                    <div>
+                        <label>
+                            <input type="checkbox" th:id="${'specialty-' + specialty.id}" th:name="specialties" th:value="${specialty.id}"
+                                   th:checked="${#lists.contains(booking.specialties, specialty)}">
+                        </label>
+                        <label th:for="${'specialty-' + specialty.id}" th:text="${specialty.name}"></label>
+                    </div>
+                </div>
+            </li>
+            <li>
+                Price:
+                <label for="price"></label>
+                <input type="number" id="price" name="price" th:value="${booking.eventCategory.startingPrice}" min="0">
+                $
+            </li>
+        </ul>
+        <br>
+
+        <div>
+            <span style="background-color: yellow" th:text="'Payment Terms:'"/>
+        </div>
+
+    </div>
+
+
+        <div class="agreement-text">
+            <div>Terms and Conditions:</div> <br>
+
+            <div>Booking Confirmation: The Client acknowledges that by confirming acceptance of this Agreement, they confirm the booking of the Photographer's services for the specified event date and time. Any changes to the event date, time, or location must be communicated to the Photographer in writing and agreed upon by both parties.</div>  <br>
+
+            <div>Cancellation and Rescheduling: The Client understands that the downpayment made upon acceptance of this agreement is non-refundable. In the event of cancellation or rescheduling, the Client must provide written notice to the Photographer till
+
+                    <label th:text="${booking.bookingDate.getYear()}"/>
+
+                . Failure to provide timely notice may result in forfeiture of the downpayment. Any remaining balance paid by the Client will be subject to the cancellation policy outlined in the agreement.</div> <br>
+
+            <div>Photography Rights: The Photographer retains exclusive rights to all photographs taken during the event, including the right to use and display them for promotional purposes unless otherwise agreed upon in writing. The Client understands that they will receive a license for personal use of the photographs and may not sell or distribute them for commercial purposes without the Photographer's consent.</div> <br>
+
+            <div>Model Release: The Client grants the Photographer the right to use the photographs of the event for promotional purposes, including but not limited to social media, website, and marketing materials. If the Client does not wish to grant this right, they must notify the Photographer in writing prior to the event. The Photographer will make reasonable efforts to accommodate such requests, but cannot guarantee the complete exclusion of the Client's images from promotional materials.</div>  <br>
+
+            <div>Indemnification: The Client agrees to indemnify and hold harmless the Photographer against any claims, damages, or expenses arising from or related to the Client's use of the photographs or any breach of this Agreement. This includes but is not limited to claims of copyright infringement, defamation, or violation of privacy rights. The Client also agrees to indemnify the Photographer for any damages or injuries sustained by the Client or their guests during the event, except in cases of gross negligence or willful misconduct on the part of the Photographer.</div> <br>
+
+            <div>Governing Law: This Agreement shall be governed by and construed in accordance with the laws of [Insert Jurisdiction]. Any disputes arising out of or in connection with this Agreement shall be subject to the exclusive jurisdiction of the courts of [Insert Jurisdiction].</div> <br>
+        </div>
+
+        <div>A non-refundable down payment of at least 20% of the total price is due upon acceptance of this agreement.</div> <br>
+
+        <div>The remaining balance is to be paid [Insert Payment Terms, e.g., on the day of the event or prior to the event date].</div> <br>
+
+        <div>Kindly confirm your acceptance of the terms and conditions outlined in the agreement by replying to this email with the following statement: "I have read and agree to the terms and conditions of the Photography Agreement."</div> <br>
+
+        <div>Your confirmation will serve as your acceptance of the terms, equivalent to your electronic signature.</div> <br>
+
+        <div>Upon receipt of your confirmation, I will consider the agreement finalized, and we can proceed with the necessary arrangements for the event.</div> <br>
+
+        <div>Thank you for selecting me as your photographer. I am eager to capture memorable moments for you.</div> <br>
+
+        <div>Best regards,</div>
+        <div>Arman Galstyan</div>
+        <div> +1(818) 123 4567</div>
+
+        <input type="submit" value="Create Agreement">
+    </form>
+</div>
+
+</body>
+</html>

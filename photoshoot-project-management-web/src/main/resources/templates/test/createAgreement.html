@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/agreements/create" method="post">
+    <input type="hidden" name="bookingId" th:value="${bookingId}">
+    Name: <input type="text" name="name"><br>
+    Price: <input type="number" name="price" step="0.01"><br>
+    <input type="submit" value="Create"><br>
+</form>
+</body>
+</html>

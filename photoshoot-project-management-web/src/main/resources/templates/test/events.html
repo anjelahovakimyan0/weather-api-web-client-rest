@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>description</th>
+        <th>starting price</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="eventCategory : ${eventCategories}">
+        <td th:text="${eventCategory.id}"></td>
+        <td th:text="${eventCategory.name}"></td>
+        <td th:text="${eventCategory.description}"></td>
+        <td th:text="${eventCategory.startingPrice}"></td>
+        <td>
+            <a th:href="@{'/eventCategories/update/' + ${eventCategory.id}}">Update</a>
+        </td>
+        <td>
+            <a th:href="@{'/eventCategories/delete/' + ${eventCategory.id}}">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

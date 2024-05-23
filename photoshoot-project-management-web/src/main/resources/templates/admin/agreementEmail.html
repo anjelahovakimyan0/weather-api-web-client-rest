@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Photography Agreement</title>
+</head>
+<body>
+<div style="font-family: Arial, sans-serif; margin: 20px;">
+    <h1>Photography Agreement</h1>
+    <p>Dear <span th:text="${user.name + ' ' + user.surname}"></span>,</p>
+    <p>I trust this email finds you well. As per our recent discussion, please find attached the Photography Agreement for the upcoming event.</p>
+    <h2>Agreement Details:</h2>
+    <ul>
+        <li>Event Date and Time: <span th:text="${agreement.booking.eventStartTime}">[Event Start Time]</span> to <span th:text="${agreement.booking.eventEndTime}">[Event End Time]</span></li>
+        <li>Location: <span th:text="${agreement.booking.address}">[Location]</span></li>
+        <li>Number of Participants: <span th:text="${agreement.booking.participants}">[Number]</span></li>
+        <li>Specialties: <span th:each="specialty : ${agreement.booking.specialties}" th:text="${specialty.name} + ' '">[Specialties]</span></li>
+        <li>Discounts: <span th:each="discount : ${agreement.booking.discounts}" th:text="${discount.name} + ' '">[Discounts]</span></li>
+        <li>Price: $ <strong><span th:text="${agreement.price}">[Price]</span> </strong></li>
+    </ul>
+
+    <h2>Terms and Conditions:</h2>
+    <p>The following terms apply to the booking:</p>
+    <ul>
+        <li>Booking Confirmation: The Client acknowledges that by confirming acceptance of this Agreement, they confirm the booking of the Photographer's services for the specified event date and time. Any changes to the event date, time, or location must be communicated to the Photographer in writing and agreed upon by both parties.</li>
+        <li>Cancellation and Rescheduling: The Client understands that the downpayment made upon acceptance of this agreement is non-refundable. In the event of cancellation or rescheduling, the Client must provide written notice to the Photographer till <label th:text="${agreement.booking.bookingDate.getYear()}"/> . Failure to provide timely notice may result in forfeiture of the downpayment. Any remaining balance paid by the Client will be subject to the cancellation policy outlined in the agreement</li>
+        <li>Photography Rights: The Photographer retains exclusive rights to all photographs taken during the event, including the right to use and display them for promotional purposes unless otherwise agreed upon in writing. The Client understands that they will receive a license for personal use of the photographs and may not sell or distribute them for commercial purposes without the Photographer's consent. </li>
+        <li>Model Release: The Client grants the Photographer the right to use the photographs of the event for promotional purposes, including but not limited to social media, website, and marketing materials. If the Client does not wish to grant this right, they must notify the Photographer in writing prior to the event. The Photographer will make reasonable efforts to accommodate such requests, but cannot guarantee the complete exclusion of the Client's images from promotional materials. </li>
+        <li>Indemnification: The Client agrees to indemnify and hold harmless the Photographer against any claims, damages, or expenses arising from or related to the Client's use of the photographs or any breach of this Agreement. This includes but is not limited to claims of copyright infringement, defamation, or violation of privacy rights. The Client also agrees to indemnify the Photographer for any damages or injuries sustained by the Client or their guests during the event, except in cases of gross negligence or willful misconduct on the part of the Photographer.</li>
+        <li>Governing Law: This Agreement shall be governed by and construed in accordance with the laws. Any disputes arising out of or in connection with this Agreement shall be subject to the exclusive jurisdiction of the courts</li>
+        <li>A non-refundable down payment of at least 20% of the total price is due upon acceptance of this agreement.</li>
+        <li>Your confirmation will serve as your acceptance of the terms, equivalent to your electronic signature.</li>
+        <li>Upon receipt of your confirmation, I will consider the agreement finalized, and we can proceed with the necessary arrangements for the event.</li>
+    </ul>
+
+    <p>A non-refundable down payment of at least 20% of the total price is due upon acceptance of this agreement. The remaining balance is to be paid [Insert Payment Terms, e.g., on the day of the event or prior to the event date].</p>
+
+    <p>Kindly confirm your acceptance of the terms and conditions outlined in the agreement by replying to this email with the following statement: <strong>"I have read and agree to the terms and conditions of the Photography Agreement."</strong></p>
+
+    <p>Thank you for selecting me as your photographer. I look forward to capturing memorable moments for you.</p>
+
+    <p>Visit my website: <a href="http://www.armphoto.com">www.armphoto.com</a></p>
+    <p>Best regards,<br>Arman Galstyan<br>+1(818) 123 4567</p>
+</div>
+</body>
+</html>

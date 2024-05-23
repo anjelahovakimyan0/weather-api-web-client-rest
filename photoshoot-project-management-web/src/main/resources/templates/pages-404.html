@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<title>Bason - Pages 404 Not Found</title>
+<meta name="author" content="Graphicfort">
+<meta name="robots" content="index follow">
+<meta name="googlebot" content="index follow">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="keywords" content="bason, HTML5, CSS3, Creative, MultiPurpose, Template, create professional website fast">
+<meta name="description" content="HTML5 MultiPurpose Template, create professional website fast">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" href="/assets/images/favicon/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="/assets/images/favicon/favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/assets/images/favicon/favicon-180x180.png" />
+<meta name="msapplication-TileImage" content="/assets/images/favicon/favicon-270x270.png" />
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/assets/js/vendor/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css" />
+<link rel="stylesheet" href="/assets/js/plugins/fancybox/css/jquery.fancybox.min.css" />
+<link rel="stylesheet" href="/assets/js/plugins/mediaelementplayer/css/mediaelementplayer.min.css" />
+<link rel="stylesheet" href="/assets/js/plugins/twenty-twenty/css/twentytwenty.min.css" />
+<link rel="stylesheet" href="/assets/js/plugins/owl-carousel/assets/owl.carousel.min.css" />
+<link rel="stylesheet" href="/assets/js/plugins/owl-carousel/assets/owl.theme.default.min.css" />
+<link rel="stylesheet" href="/assets/css/social-networks/social-networks.min.css" />
+<link rel="stylesheet" href="/assets/css/animate/animate.min.css" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+<link rel="stylesheet" href="/assets/css/custom.css" />
+</head>
+
+<body>
+
+<div id="graphicfort-elements" class="notification-block graphicfort-notification-block notification-block-layout-2" data-cookie-name="graphicfort-elements" data-cookie-expire="0">
+
+<div class="notification-block-container">
+
+<div class="notification-block-body white-color-bg">
+
+<div class="notification-block-content">
+<p class="notification-image">
+<a href="https://graphicfort.com/lp/envato-elements" target="_blank">
+<img src="https://graphicfort.com//assets/images/graphicfort.com/notifications/envato-elements.jpg" alt="envato elements" width="348" height="182">
+</a>
+</p>
+<p>Complete your website with millions of creative photos, icons, graphics, and much more...</p>
+<p>
+<a class="btn btn-block btn-lg btn-danger" href="https://graphicfort.com/lp/envato-elements" target="_blank">
+<span class="btn-text">Get unlimited downloads</span>
+</a>
+</p>
+</div>
+
+<div class="notification-block-footer notification-block-footer-x-close">
+<button class="btn-notification-dismiss">&times;</button>
+</div>
+</div>
+</div>
+</div>
+
+<div id="main-wrapper">
+
+<div id="main-container">
+
+<a href="pages-404.html#" id="back-to-top" class="back-to-top" title="Back to top"></a>
+
+<header class="header-section header-section-fixed">
+
+<div class="header-section-container">
+
+<div class="header-menu-section">
+
+<div class="header-menu-section-container">
+
+<nav class="navbar navbar-expand-lg">
+
+<div class="container gx-4">
+
+<a class="navbar-brand" href="test/index.html" title="Bason">
+<img src="/assets/images/logo.png" alt="Bason" class="normal" />
+<img src="/assets/images/logo-light.png" alt="Bason" class="transparent" />
+</a>
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-wd">MENU</span>
+<span class="navbar-toggler-lines-wrapper">
+<i class="navbar-toggler-line navbar-toggler-line-top"></i>
+<i class="navbar-toggler-line navbar-toggler-line-middle"></i>
+<i class="navbar-toggler-line navbar-toggler-line-bottom"></i>
+</span>
+</button>
+
+<div class="header-menu desktop-menu navbar-collapse">
+
+<ul class="navbar-nav ms-auto">
+
+    <li class="nav-item">
+        <a class="nav-link"><span>ACCOUNT</span></a>
+        <ul>
+            <li class="nav-item" th:if="${currentUser == null}">
+                <a class="nav-link"
+                   href="/users/register"><span>Register</span></a>
+            </li>
+            <li class="nav-item" th:if="${currentUser != null}">
+                <a class="nav-link"
+                   th:href="@{'/users/' + ${currentUser.id}}"><span>My Page</span></a>
+            </li>
+            <li class="nav-item" th:if="${currentUser == null}">
+                <a class="nav-link"
+                   href="/users/loginPage"><span>Login</span></a>
+            </li>
+            <li class="nav-item" th:if="${currentUser != null}">
+                <a class="nav-link"
+                   href="/logout"><span>Logout</span></a>
+            </li>
+        </ul>
+    </li>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>PORTFOLIO</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="portfolio-layout-1.html"><span>Layout 1</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="portfolio-layout-2.html"><span>Layout 2</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="portfolio-layout-3.html"><span>Layout 3</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="portfolio-layout-4.html"><span>Layout 4</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>Single</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>Default</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="portfolio-single-default-standard.html">
+<span>Standard</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="portfolio-single-default-image.html">
+<span>Image</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="portfolio-single-default-gallery-layout-1.html">
+<span>Gallery (Layout 1)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="portfolio-single-default-gallery-layout-2.html">
+<span>Gallery (Layout 2)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="portfolio-single-default-video.html">
+<span>Video</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="portfolio-single-default-audio.html">
+<span>Audio</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>Side by side</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="portfolio-single-sbs-standard.html">
+<span>Standard</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="portfolio-single-sbs-image.html">
+<span>Image</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="portfolio-single-sbs-gallery-layout-1.html">
+<span>Gallery (Layout 1)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="portfolio-single-sbs-gallery-layout-2.html">
+<span>Gallery (Layout 2)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="portfolio-single-sbs-video.html">
+<span>Video</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="portfolio-single-sbs-audio.html">
+<span>Audio</span>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>SHOP</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>Account</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="shop-account-dashboard.html">
+<span>Dashboard</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-account-orders-1.html">
+<span>Orders (1)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-account-orders-2.html">
+<span>Orders (2)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-account-order-details.html">
+<span>Order details</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-account-downloads-1.html">
+<span>Downloads (1)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-account-downloads-2.html">
+<span>Downloads (2)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-account-addresses-1.html">
+<span>Addresses (1)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-account-addresses-2.html">
+<span>Addresses (2)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-account-addresses-3.html">
+<span>Addresses (3)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-account-addresses-4.html">
+<span>Addresses (4)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-account-details.html">
+<span>Account details</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-account-wishlist-1.html">
+<span>Wishlist (1)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-account-wishlist-2.html">
+<span>Wishlist (2)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-account-wishlist-3.html">
+<span>Wishlist (3)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-account-wishlist-4.html">
+<span>Wishlist (4)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-account-wishlist-5.html">
+<span>Wishlist (5)</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>2 columns</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="shop-2-columns-right-sidebar.html">
+<span>Right sidebar</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-2-columns-left-sidebar.html">
+<span>Left sidebar</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-3-columns.html">
+<span>3 columns</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-4-columns.html">
+<span>4 columns</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-single-product.html">
+<span>Single product</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>Cart</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="shop-cart-1.html">
+<span>Cart (1)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-cart-2.html">
+<span>Cart (2)</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>Checkout</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="shop-checkout-1.html">
+<span>Checkout (1)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop-checkout-2.html">
+<span>Checkout (2)</span>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>BLOG</span></a>
+<ul>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>Standard</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="blog-standard-right-sidebar.html">
+<span>Right sidebar</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-standard-left-sidebar.html">
+<span>Left sidebar</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-standard-without-sidebar.html">
+<span>W/O sidebar</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-standard-without-sidebar-center.html">
+<span>W/O sidebar (Center)</span>
+</a>
+</li>
+</ul>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>Small images</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="blog-small-image-right-sidebar.html">
+<span>Right sidebar</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-small-image-left-sidebar.html">
+<span>Left sidebar</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-small-image-without-sidebar.html">
+<span>W/O sidebar</span>
+</a>
+</li>
+</ul>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>Grid</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="blog-grid-right-sidebar.html">
+<span>Right sidebar</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-grid-left-sidebar.html">
+<span>Left sidebar</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-grid-without-sidebar.html">
+<span>W/O sidebar</span>
+</a>
+</li>
+</ul>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>Masonry</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="blog-masonry-right-sidebar.html">
+<span>Right sidebar</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-masonry-left-sidebar.html">
+<span>Left sidebar</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-masonry-without-sidebar.html">
+<span>W/O sidebar</span>
+</a>
+</li>
+</ul>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>Single</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="blog-single-right-sidebar-layout-1.html">
+<span>Right sidebar (Layout 1)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-single-right-sidebar-layout-2.html">
+<span>Right sidebar (Layout 2)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-single-left-sidebar-layout-1.html">
+<span>Left sidebar (Layout 1)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-single-left-sidebar-layout-2.html">
+<span>Left sidebar (Layout 2)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-single-without-sidebar-layout-1.html">
+<span>W/O sidebar (Layout 1)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-single-without-sidebar-layout-2.html">
+<span>W/O sidebar (Layout 2)</span>
+</a>
+</li>
+</ul>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>Post type</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="blog-single-right-sidebar-layout-1.html">
+<span>Standard</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-single-right-sidebar-layout-1.html">
+<span>Image</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-single-gallery.html">
+<span>Gallery</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-single-video.html">
+<span>Video</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-single-audio.html">
+<span>Audio</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-single-quote.html">
+<span>Quote</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="blog-single-link.html">
+<span>Link</span>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li class="nav-item megamenu">
+<a class="nav-link" href="pages-404.html#"><span>PAGES</span></a>
+<ul>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>PAGES 1</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="pages-about-us-1.html">
+<span><i class="fas fa-user-friends"></i>About us (1)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-about-us-2.html">
+<span><i class="fas fa-user-friends"></i>About us (2)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-about-us-3.html">
+<span><i class="fas fa-user-friends"></i>About us (3)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-about-us-4.html">
+<span><i class="fas fa-user-friends"></i>About us (4)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-about-us-5.html">
+<span><i class="fas fa-user-friends"></i>About us (5)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-about-us-6.html">
+<span><i class="fas fa-user-friends"></i>About us (6)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-about-us-7.html">
+<span><i class="fas fa-user-friends"></i>About us (7)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-about-me-1.html">
+<span><i class="fas fa-user-alt"></i>About me (1)</span>
+</a>
+</li>
+</ul>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>PAGES 2</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="pages-about-me-2.html">
+<span><i class="fas fa-user-alt"></i>About me (2)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-contact-us-1.html">
+<span><i class="fas fa-paper-plane"></i>Contact us (1)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-contact-us-2.html">
+<span><i class="fas fa-paper-plane"></i>Contact us (2)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-contact-us-3.html">
+<span><i class="fas fa-paper-plane"></i>Contact us (3)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-contact-us-4.html">
+<span><i class="fas fa-paper-plane"></i>Contact us (4)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-faq-1.html">
+<span><i class="fas fa-question"></i>FAQ (1)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-faq-2.html">
+<span><i class="fas fa-question"></i>FAQ (2)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-faq-3.html">
+<span><i class="fas fa-question"></i>FAQ (3)</span>
+</a>
+</li>
+</ul>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>PAGES 3</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="pages-faq-4.html">
+<span><i class="fas fa-question"></i>FAQ (4)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-jobs.html">
+<span><i class="fas fa-bullhorn"></i>Jobs</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-search-results.html">
+<span><i class="fas fa-search"></i>Search results</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-services-1.html">
+<span><i class="fas fa-handshake"></i>Services (1)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-services-2.html">
+<span><i class="fas fa-handshake"></i>Services (2)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-services-3.html">
+<span><i class="fas fa-handshake"></i>Services (3)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-services-4.html">
+<span><i class="fas fa-handshake"></i>Services (4)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-services-5.html">
+<span><i class="fas fa-handshake"></i>Services (5)</span>
+</a>
+</li>
+</ul>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>PAGES 4</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="pages-services-6.html">
+<span><i class="fas fa-handshake"></i>Services (6)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-services-7.html">
+<span><i class="fas fa-handshake"></i>Services (7)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html">
+<span><i class="fas fa-exclamation-circle"></i>404 Page</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-maintenance-mode.html">
+<span><i class="fas fa-cog"></i>Maintenance mode</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-under-construction.html">
+<span><i class="fas fa-hammer"></i>Under construction</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-sign-in.html">
+<span><i class="fas fa-user-lock"></i>Sign in</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-sign-up.html">
+<span><i class="fas fa-user-plus"></i>Sign up</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-lost-password.html">
+<span><i class="fas fa-key"></i>Lost password</span>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>FEATURES</span></a>
+<ul>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>Top bar</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="features-top-bar-content-1.html">
+<span>Content 1</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="features-top-bar-content-2.html">
+<span>Content 2</span>
+</a>
+</li>
+</ul>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>Headers</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="features-headers-layout-1-default.html">
+<span>Layout 1 (Default)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="features-headers-layout-1-fixed.html">
+<span>Layout 1 (Fixed)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="features-headers-layout-1-transparent-dark.html">
+<span>Layout 1 (Transparent - Dark)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="features-headers-layout-1-transparent-light.html">
+<span>Layout 1 (Transparent - Light)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="features-headers-layout-2-default.html">
+<span>Layout 2 (Default)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="features-headers-layout-2-fixed.html">
+<span>Layout 2 (Fixed)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="features-headers-layout-3-variation-1.html">
+<span>Layout 3 (Variation 1)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="features-headers-layout-3-variation-2.html">
+<span>Layout 3 (Variation 2)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="features-headers-layout-3-variation-3.html">
+<span>Layout 3 (Variation 3)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="features-headers-layout-3-variation-4.html">
+<span>Layout 3 (Variation 4)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="features-headers-layout-3-variation-5.html">
+<span>Layout 3 (Variation 5)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="features-headers-layout-3-variation-6.html">
+<span>Layout 3 (Variation 6)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="features-headers-layout-4.html">
+<span>Layout 4</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="features-headers-layout-5-variation-1.html">
+<span>Layout 5 (Variation 1)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="features-headers-layout-5-variation-2.html">
+<span>Layout 5 (Variation 2)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="features-headers-layout-5-variation-3.html">
+<span>Layout 5 (Variation 3)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="features-headers-layout-5-variation-4.html">
+<span>Layout 5 (Variation 4)</span>
+</a>
+</li>
+</ul>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>Page title</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="features-page-title-layout-1.html">
+<span>Layout 1</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="features-page-title-layout-2.html">
+<span>Layout 2</span>
+</a>
+</li>
+</ul>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="features-widgets.html">
+<span>Widgets</span>
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="features-top-footer.html">
+<span>Top footer</span>
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="features-copyright.html">
+<span>Copyright</span>
+</a>
+</li>
+</ul>
+</li>
+
+<li class="nav-item megamenu">
+<a class="nav-link" href="pages-404.html#"><span>ELEMENTS</span></a>
+<ul>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>ELEMENTS 1</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="elements-accordion.html">
+<span><i class="fas fa-plus"></i>Accordion</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-alerts.html">
+<span><i class="fas fa-exclamation-triangle"></i>Alerts</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-body-mass-index.html">
+<span><i class="fas fa-dumbbell"></i>Body mass index</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-buttons.html">
+<span><i class="fas fa-hand-pointer"></i>Buttons</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-call-to-action.html">
+<span><i class="fas fa-info-circle"></i>Call to action</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-cards.html">
+<span><i class="far fa-window-maximize"></i>Cards</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-contact.html">
+<span><i class="fas fa-address-book"></i>Contact</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-contact-form.html">
+<span><i class="fas fa-envelope"></i>Contact form</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-counter.html">
+<span><i class="fas fa-sort-numeric-up"></i>Counter</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-downcount-timer.html">
+<span><i class="fas fa-sort-numeric-down"></i>DownCount timer</span>
+</a>
+</li>
+</ul>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>ELEMENTS 2</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="elements-gallery.html">
+<span><i class="fas fa-images"></i>Gallery</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-google-maps.html">
+<span><i class="fas fa-map-signs"></i>Google maps</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-hr-divider.html">
+<span><i class="fas fa-grip-lines"></i>Hr divider</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-icon.html">
+<span><i class="fas fa-info"></i>Icon</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-image.html">
+<span><i class="fas fa-image"></i>Image</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-image-comparison.html">
+<span><i class="fas fa-arrows-alt-h"></i>Image comparison</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-image-slider.html">
+<span><i class="fas fa-sliders-h"></i>Image slider</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-lists.html">
+<span><i class="fas fa-list"></i>Lists</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-mailchimp.html">
+<span><i class="fas fa-paper-plane"></i>Mailchimp</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-media.html">
+<span><i class="fas fa-video"></i>Media</span>
+</a>
+</li>
+</ul>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>ELEMENTS 3</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="elements-modal.html">
+<span><i class="fas fa-window-maximize"></i>Modal</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-notifications-layout-1.html">
+<span><i class="fas fa-bullhorn"></i>Notifications</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-page-preloader-layout-1.html">
+<span><i class="fas fa-hourglass-start"></i>Page Preloader</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-pie-chart.html">
+<span><i class="fas fa-chart-pie"></i>Pie chart</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-pricing-tables.html">
+<span><i class="fas fa-dollar-sign"></i>Pricing tables</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-process.html">
+<span><i class="fas fa-list-ol"></i>Process</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-progress-bar.html">
+<span><i class="fas fa-battery-three-quarters"></i>Progress bar</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-search-form.html">
+<span><i class="fas fa-search"></i>Search form</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-sections.html">
+<span><i class="fas fa-columns"></i>Sections</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-section-title.html">
+<span><i class="fas fa-heading"></i>Section title</span>
+</a>
+</li>
+</ul>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#"><span>ELEMENTS 4</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="elements-share.html">
+<span><i class="fas fa-share-alt"></i>Share</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-sitemap.html">
+<span><i class="fas fa-sitemap"></i>Sitemap</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-social-networks.html">
+<span><i class="fab fa-facebook-f"></i>Social networks</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-tables.html">
+<span><i class="fas fa-table"></i>Tables</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-tabs.html">
+<span><i class="fas fa-indent"></i>Tabs</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-team-member.html">
+<span><i class="fas fa-user"></i>Team member</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-testimonials.html">
+<span><i class="fas fa-comment-alt"></i>Testimonials</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="index-resume.html">
+<span><i class="fas fa-font"></i>Text animation</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-timeline.html">
+<span><i class="fas fa-stream"></i>Timeline</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="elements-twitter-feed.html">
+<span><i class="fab fa-twitter"></i>Twitter feed</span>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li class="nav-item nav-item-languages">
+<a class="nav-link" href="pages-404.html#"><span>EN</span></a>
+<ul>
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#">
+<span><img src="/assets/images/languages/fr.jpg" alt="French" /> FR</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#">
+<span><img src="/assets/images/languages/ge.jpg" alt="German" /> GE</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="pages-404.html#">
+<span><img src="/assets/images/languages/it.jpg" alt="Italian" /> IT</span>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+
+<ul class="header-menu-buttons">
+
+<li class="nav-item header-menu-buttons-divider"></li>
+
+<li class="nav-item header-menu-buttons-cart">
+<a href="shop-cart-2.html" title="View your shopping cart" class="nav-link">
+<span class="cart-wd">CART</span>
+<i class="fas fa-shopping-basket"></i>
+<span class="badge accent-color-bg">2</span>
+</a>
+
+<div class="shop-mini-cart">
+
+<ul class="shop-mini-cart-list">
+
+<li class="shop-mini-cart-item">
+<a href="pages-404.html#" class="btn-remove">&times;</a>
+<a href="shop-single-product.html">
+<img src="/assets/images/shop/005-42x67.jpg" alt="Smart watch" />Smart watch
+</a>
+<span class="quantity secondary-font-family">
+1 &times;
+<span class="amount">
+<span class="symbol">$</span>17.00
+</span>
+</span>
+</li>
+
+<li class="shop-mini-cart-item">
+<a href="pages-404.html#" class="btn-remove">&times;</a>
+<a href="shop-single-product.html">
+<img src="/assets/images/shop/010-42x67.jpg" alt="School backpack" />School backpack
+</a>
+<span class="quantity secondary-font-family">
+2 &times;
+<span class="amount">
+<span class="symbol">$</span>20.00
+</span>
+</span>
+</li>
+</ul>
+
+<p class="shop-mini-cart-total secondary-font-family">
+<strong>Subtotal:</strong>
+<span class="amount">
+<span class="symbol">$</span>57.00
+</span>
+</p>
+
+<p class="shop-mini-cart-buttons">
+<a href="shop-cart-2.html" class="btn btn-sm btn-accent btn-block">VIEW CART</a>
+<a href="shop-checkout-1.html" class="btn btn-sm btn-light btn-block">CHECKOUT</a>
+</p>
+</div>
+</li>
+
+<li class="nav-item header-menu-buttons-search">
+<a href="pages-404.html#" class="nav-link btn-form-block-header-search-open" title="open search form">
+<i class="fas fa-search"></i>
+</a>
+
+<div class="form-block form-block-header-search">
+
+<div class="form-block-container">
+
+<form method="GET" action="pages-search-results.html" class="form-block-header-search-desktop">
+<a href="pages-404.html#" class="btn-form-block-header-search-close" title="close search form">&times;</a>
+<input class="clear-search form-control" type="search" placeholder="Type then hit enter to search..." name="s" value autocomplete="off" aria-label="Search">
+</form>
+
+<form method="GET" action="pages-search-results.html" class="form-block-header-search-mobile">
+<input class="clear-search form-control" type="search" placeholder="Search..." name="s" value autocomplete="off" aria-label="Search">
+<button type="submit" value aria-label="Submit">
+<i class="fas fa-search"></i>
+</button>
+</form>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="header-menu mobile-menu collapse" id="mobile-menu">
+</div>
+</nav>
+</div>
+</div>
+</div>
+</header>
+
+<div class="breadcrumb-section breadcrumb-section-layout-1 text-center">
+
+<div class="breadcrumb-section-container">
+
+<div class="container gx-4">
+
+<div class="row align-items-center justify-content-between">
+
+<div class="breadcrumb-title">
+<h1 class="breadcrumb-heading h5 font-weight-500">Page not found</h1>
+</div>
+
+<nav class="breadcrumb-nav">
+<ol class="breadcrumb">
+<li class="breadcrumb-item">
+<a href="test/index.html" class="home" title="Home">
+<span><i class="fas fa-home"></i></span>
+</a>
+</li>
+<li class="breadcrumb-item active"><span>Page not found</span></li>
+</ol>
+</nav>
+</div>
+</div>
+</div>
+</div>
+
+<div id="page-body" class="page-body">
+
+<div class="row main-row justify-content-center">
+
+<div id="primary" class="content-area col-lg-12">
+
+<main id="main" class="content-area-container site-main">
+
+<div class="main-section">
+
+<div class="container gx-4">
+
+<div class="row gx-36 justify-content-center">
+
+<div class="col-xl-5 col-lg-6 col-md-8">
+
+<div class="section-title text-center">
+
+<div class="section-title-container">
+
+<div class="section-title-body">
+
+<div class="section-title-content">
+<h4>OOPS! Page not found</h4>
+<h2 class="custom-number">
+<span>4</span>
+<span>0</span>
+<span>4</span>
+</h2>
+<p th:if="${exceptionMsg != null}" th:text="${exceptionMsg}"></p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="main-block text-block text-center">
+
+<div class="main-block-container text-block-container">
+
+<div class="main-block-body text-block-body">
+
+<div class="main-block-content text-block-content">
+<a href="/" class="btn btn-accent">BACK TO HOME</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+
+<footer id="colophon" class="footer-section site-footer">
+
+<div class="footer-section-container">
+
+<div class="footer-section-top">
+
+<div class="main-section">
+
+<div class="container gx-4">
+
+<div class="row gx-36">
+
+<div class="col-lg-5">
+
+<div class="widget widget_text light-color">
+<h6 class="widget-title font-weight-500"><span>About Bason</span></h6>
+<div class="textwidget">
+<p>Sed blandit quis tellus sit amet. Proin pharetra dolor non egestas pulvinar. Maecenas justo eros, sed sodales ut, vulputate viverra risus suspendisse massa augue, eget et ornare.</p>
+
+<div class="social-networks social-networks-xs social-networks-layout-2">
+<ul>
+<li>
+<a href="pages-404.html#" title="Facebook">
+<i class="fab fa-facebook-f"></i>
+<i class="fab fa-facebook-f"></i>
+</a>
+</li>
+<li>
+<a href="pages-404.html#" title="Twitter">
+<i class="fab fa-twitter"></i>
+<i class="fab fa-twitter"></i>
+</a>
+</li>
+<li>
+<a href="pages-404.html#" title="youtube">
+<i class="fab fa-youtube"></i>
+<i class="fab fa-youtube"></i>
+</a>
+</li>
+<li>
+<a href="pages-404.html#" title="Behance">
+<i class="fab fa-behance"></i>
+<i class="fab fa-behance"></i>
+</a>
+</li>
+<li>
+<a href="pages-404.html#" title="Dribbble">
+<i class="fab fa-dribbble"></i>
+<i class="fab fa-dribbble"></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-lg-2">
+
+<div class="widget widget_nav_menu light-color">
+<h6 class="widget-title font-weight-500"><span>Company</span></h6>
+<ul>
+<li><a href="pages-404.html#">About us</a></li>
+<li><a href="pages-404.html#">Portfolio</a></li>
+<li><a href="pages-404.html#">Shop</a></li>
+<li><a href="pages-404.html#">Contact us</a></li>
+</ul>
+</div>
+</div>
+
+<div class="col-lg-2">
+
+<div class="widget widget_nav_menu light-color">
+<h6 class="widget-title font-weight-500"><span>Account</span></h6>
+<ul>
+<li><a href="pages-404.html#">Sign in</a></li>
+<li><a href="pages-404.html#">Sign up</a></li>
+<li><a href="pages-404.html#">Reset password</a></li>
+<li><a href="pages-404.html#">View account</a></li>
+</ul>
+</div>
+</div>
+
+<div class="col-lg-3">
+
+<div class="widget widget_subscribe light-color">
+<h6 class="widget-title font-weight-500"><span>Stay updated</span></h6>
+
+<div class="form-block form-block-mailchimp form-block-mailchimp-layout-4">
+
+<div class="form-block-container">
+
+<form method="POST" action="pages-404.html#" class="row">
+
+<div class="col-lg-12">
+<input class="form-control" type="email" name="EMAIL" placeholder="Email address" aria-label="Email address">
+<button type="submit" class="white-color" aria-label="Submit">
+<span><i class="fas fa-paper-plane"></i></span>
+</button>
+<small>* Don't worry we don't spam.</small>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer-section-copyright">
+
+<div class="main-section">
+
+<div class="container gx-4">
+
+<div class="row gx-36">
+
+<div class="col-lg-12">
+
+<div class="footer-section-copyright-content light-color">
+<p>&copy; <span class="current-year">2021</span> designed &amp; developed by <a href="pages-404.html#" title="Graphicfort">Graphicfort</a>, all rights reserved.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+
+<script src="/assets/js/vendor/jquery/jquery-3.6.0.min.js"></script>
+<script src="/assets/js/vendor/jquery/jquery-ui.min.js"></script>
+<script src="/assets/js/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/plugins/animsition/js/animsition.min.js"></script>
+<script src="/assets/js/plugins/appear/jquery.appear.min.js"></script>
+<script src="/assets/js/plugins/countto/jquery.countTo.min.js"></script>
+<script src="/assets/js/plugins/downcount/jquery.downCount.min.js"></script>
+<script src="/assets/js/plugins/easy-pie-chart/jquery.easypiechart.min.js"></script>
+<script src="/assets/js/plugins/fancybox/js/jquery.fancybox.min.js"></script>
+<script src="/assets/js/plugins/fitvids/jquery.fitvids.min.js"></script>
+<script src="/assets/js/plugins/isotope/isotope.pkgd.min.js"></script>
+<script src="/assets/js/plugins/mediaelementplayer/js/mediaelement-and-player.min.js"></script>
+<script src="/assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+<script src="/assets/js/plugins/pace/pace.min.js"></script>
+<script src="/assets/js/plugins/parallax/jquery.parallax-1.1.3.min.js"></script>
+<script src="/assets/js/plugins/perfect-scrollbar/perfect-scrollbar.jquery.min.js"></script>
+<script src="/assets/js/plugins/sticky-sidebar/jquery.sticky-sidebar.min.js"></script>
+<script src="/assets/js/plugins/tweetie/tweetie.min.js"></script>
+<script src="/assets/js/plugins/twenty-twenty/js/twentytwenty.min.js"></script>
+<script src="/assets/js/plugins/typed/typed.min.js"></script>
+<script src="/assets/js/plugins/validation/jquery.validate.min.js"></script>
+<script src="/assets/js/scripts.js"></script>
+</body>
+</html>

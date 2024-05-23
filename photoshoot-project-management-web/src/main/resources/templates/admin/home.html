@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Home</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to Admin Panel</h1>
+
+    <div class="card">
+        <h2>Manage Events</h2>
+        <a class="button" href="/eventCategories">Events</a>
+        <a class="button" href="/eventCategories/create">Add Event</a>
+    </div>
+
+    <div class="card">
+        <h2>Manage Bookings</h2>
+        <a class="button" href="/bookings">Bookings</a>
+        <a class="button" href="/bookings/create">Create Booking</a>
+    </div>
+
+    <div class="card">
+        <h2>Manage Images</h2>
+        <a class="button" href="/images">Images</a>
+        <a class="button" href="/images/create">Create Image</a>
+    </div>
+
+    <div class="card">
+        <h2>User Management</h2>
+        <a class="button" href="/users">Users</a>
+        <a class="button" href="/users/create">Create User</a>
+    </div>
+
+    <div class="card">
+        <h2>Logout</h2>
+        <a class="button" href="/logout">Logout</a>
+    </div>
+</div>
+</body>
+</html>

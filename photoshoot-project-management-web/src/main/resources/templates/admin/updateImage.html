@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Image</title>
+    <style>
+        /* Embedded CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 20px;
+        }
+        .image-preview {
+            margin-bottom: 10px;
+        }
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-right: 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        a.button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Update Image</h2>
+    <!-- Back button -->
+    <a class="button" href="/images">Back</a>
+    <!-- Previous image preview -->
+    <div class="image-preview">
+        <h3>Previous Image:</h3>
+        <img th:src="@{/getPicture(picName=${image.picUrl})}" alt="Previous Image" width="200"/>
+    </div>
+    <!-- Update form -->
+    <form th:action="@{/images/update}" method="post" enctype="multipart/form-data">
+        <input type="hidden" th:field="${image.id}" name="id"/>
+        <div>
+            <label for="file">Upload New File (Optional):</label>
+            <input type="file" id="file" multiple name="file">
+        </div>
+        <div class="form-group">
+            <label for="eventCategory">Event Category:</label>
+            <select id="eventCategory" name="eventCategory" required>
+                <option value="" disabled>Select Event Category</option>
+                <!-- Populate dropdown options using Thymeleaf -->
+                <option th:each="category : ${eventCategories}"
+                        th:value="${category.id}"
+                        th:text="${category.name}"
+                        th:selected="${image.eventCategory.id == category.id}">
+                </option>
+            </select>
+        </div>
+        <button class="ui-button" type="submit">Update</button>
+    </form>
+</div>
+</body>
+</html>

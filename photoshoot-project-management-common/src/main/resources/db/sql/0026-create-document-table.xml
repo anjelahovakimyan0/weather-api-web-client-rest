@@ -1,0 +1,32 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="0026-create-document-table" author="ahovakimyan">
+        <preConditions onFail="MARK_RAN">
+                <not>
+                    <tableExists tableName="document"/>
+                </not>
+        </preConditions>
+
+        <createTable tableName="document">
+            <column name="id" type="int(11)" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="doc_url" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="int(11)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="document"
+                                 baseColumnNames="user_id"
+                                 constraintName="fk1_document"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user"/>
+    </changeSet>
+
+</databaseChangeLog>

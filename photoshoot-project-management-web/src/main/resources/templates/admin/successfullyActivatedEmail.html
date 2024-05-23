@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Arm Photo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            background-color: #fff;
+            color: #4994eb;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            max-width: 600px;
+            margin: 50px auto;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #4994eb;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #444;
+        }
+        a {
+            color: #4994eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .banner {
+            background-image: url("/Users/narekgalstyan/Documents/IdeaProjects/photoshoot-project-management/uploadDirectory/wedding.jpg"); /* Replace with your background image URL */
+            background-size: cover;
+            background-position: center;
+            height: 150px;
+            border-radius: 5px 5px 0 0;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="banner"></div>
+    <h2>Welcome back to ArmPhoto, <span th:text="${user.name + ' ' + user.surname}"></span>!</h2>
+    <p>Your profile is now activated and you're ready to explore all the exciting possibilities ArmPhoto offers!</p>
+    <p>Here are some things you can do now:</p>
+    <ul>
+        <li>**Book an appointment:** Schedule a photoshoot directly through our platform.</li>
+        <li>**Browse portfolios:** Discover our photoshoots.</li>
+        <li>**Manage your bookings:** Easily view, reschedule, or cancel your upcoming appointments.</li>
+    </ul>
+    <p>We're excited to have you on board! Let your creativity flow and capture those special moments with Arm Photo.</p>
+    <p>The ArmPhoto Team</p>
+</div>
+</body>
+</html>
