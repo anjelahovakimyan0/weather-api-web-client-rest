@@ -1,6 +1,7 @@
 package am.itspace.photoshootprojectmanagementrest.dto.weatherApi;
 
 import lombok.Data;
+
 import java.util.List;
 
 @Data

@@ -25,9 +25,7 @@ import java.util.Optional;
 public class ReviewServiceImpl implements ReviewService {
 
     private final ReviewRepository reviewRepository;
-
     private final UserService userService;
-
     private final ReviewMapper reviewMapper;
 
     @Override
